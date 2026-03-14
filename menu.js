@@ -1,7 +1,19 @@
-const buttons = document.querySelectorAll("button");
+function filterMenu(category){
 
-buttons.forEach(button => {
-button.addEventListener("click", () => {
-alert("Страву додано до замовлення");
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+if(category === "all"){
+card.style.display = "block";
+}
+else if(card.classList.contains(category)){
+card.style.display = "block";
+}
+else{
+card.style.display = "none";
+}
+
 });
-});
+
+}

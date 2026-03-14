@@ -14,71 +14,55 @@
 
 <div class="menu">
 
-<h2>☕ Напої</h2>
+<div class="filters">
+<button onclick="filterMenu('all')">Усе</button>
+<button onclick="filterMenu('drink')">Напої</button>
+<button onclick="filterMenu('dessert')">Десерти</button>
+<button onclick="filterMenu('food')">Страви</button>
+</div>
 
 <div class="menu-grid">
 
-<div class="card">
-<img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/espresso-1000x625.png" alt="Еспресо">
+<div class="card drink">
+<img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/espresso-1000x625.png">
 <h3>Еспресо</h3>
 <p class="price">40 грн</p>
-<button>Замовити</button>
+<button class="order">Замовити</button>
 </div>
 
-<div class="card">
-<img src="https://assets.dots.live/misteram-public/0190c71b-efab-728a-9da6-eafc0301ccda-826x0.png" alt="Капучино">
+<div class="card drink">
+<img src="https://assets.dots.live/misteram-public/0190c71b-efab-728a-9da6-eafc0301ccda-826x0.png">
 <h3>Капучино</h3>
 <p class="price">55 грн</p>
-<button>Замовити</button>
+<button class="order">Замовити</button>
 </div>
 
-<div class="card">
-<img src="https://dimkavu.com.ua/image/cache/data/12/%D0%BD1/photo_2024-01-31_16-39-29-465x465.jpg" alt="Лате">
-<h3>Лате</h3>
-<p class="price">60 грн</p>
-<button>Замовити</button>
-</div>
-
-</div>
-
-
-<h2>🍰 Десерти</h2>
-
-<div class="menu-grid">
-
-<div class="card">
-<img src="https://bushe.com.ua/wp-content/uploads/2022/03/img_7355-2-scaled.jpg" alt="Чізкейк">
+<div class="card dessert">
+<img src="https://bushe.com.ua/wp-content/uploads/2022/03/img_7355-2-scaled.jpg">
 <h3>Чізкейк</h3>
 <p class="price">85 грн</p>
-<button>Замовити</button>
+<button class="order">Замовити</button>
 </div>
 
-<div class="card">
-<img src="https://i.evrasia.in.ua/data/1400_0/products/0eg0KXn01PhEQE9TkM5HE7OvDQlq4VnVDP5dOnRh.webp" alt="Тірамісу">
+<div class="card dessert">
+<img src="https://i.evrasia.in.ua/data/1400_0/products/0eg0KXn01PhEQE9TkM5HE7OvDQlq4VnVDP5dOnRh.webp">
 <h3>Тірамісу</h3>
 <p class="price">90 грн</p>
-<button>Замовити</button>
+<button class="order">Замовити</button>
 </div>
 
-</div>
-
-
-<h2>🍝 Основні страви</h2>
-
-<div class="menu-grid">
-
-<div class="card">
-<img src="https://i.evrasia.in.ua/data/558_0/products/Lhm6HJbNA8eDlzMHQuJT2Yit8gcEo7FLxi1YW0o6.jpg" alt="Паста Карбонара">
+<div class="card food">
+<img src="https://i.evrasia.in.ua/data/558_0/products/Lhm6HJbNA8eDlzMHQuJT2Yit8gcEo7FLxi1YW0o6.jpg">
 <h3>Паста Карбонара</h3>
 <p class="price">150 грн</p>
-<button>Замовити</button>
+<button class="order">Замовити</button>
 </div>
 
-<div class="card">
-<img src="https://i.evrasia.in.ua/data/1400_0/products/F9Iv4XDpGbhJkcSeTNuoQ5k9RRxS0dwPijYFmslk.webp" alt="Салат Цезар">
+<div class="card food">
+<img src="https://i.evrasia.in.ua/data/1400_0/products/F9Iv4XDpGbhJkcSeTNuoQ5k9RRxS0dwPijYFmslk.webp">
 <h3>Салат Цезар</h3>
 <p class="price">130 грн</p>
-<button>Замовити</button>
+<button class="order">Замовити</button>
 </div>
 
 </div>
