@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f3ef;
+    margin: 0;
+}
+
+header {
+    background-color: #6b3e26;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.category h2 {
+    border-bottom: 2px solid #6b3e26;
+    padding-bottom: 5px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.price {
+    color: #6b3e26;
+    font-weight: bold;
+}
