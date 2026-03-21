@@ -70,18 +70,40 @@ padding:30px;
 }
 
 .filters button{
-background:linear-gradient(45deg,#00d4ff,#7a5cff);
+background:linear-gradient(45deg,#00d4ff,#7a5cff,#ff3d77);
+background-size:200% 200%;
 border:none;
 color:white;
 padding:10px 20px;
 margin:5px;
 border-radius:25px;
 cursor:pointer;
-transition:0.3s;
+font-size:15px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
 }
 
 .filters button:hover{
+background-position:right center;
 transform:scale(1.1);
+box-shadow:0 0 15px rgba(0,212,255,0.6),
+           0 0 30px rgba(122,92,255,0.4);
+}
+
+.filters button::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+transition:0.5s;
+}
+
+.filters button:hover::before{
+left:100%;
 }
 
 .menu-grid{
@@ -133,6 +155,10 @@ transform:scale(1.1);
 opacity:0;
 transform:scale(0.8);
 pointer-events:none;
+}
+
+.filters button:active{
+transform:scale(0.95);
 }
 
 
