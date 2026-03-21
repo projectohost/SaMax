@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Меню кафе</title>
 <link rel="stylesheet" href="./menu.css">
 </head>
@@ -9,9 +10,13 @@
 <body>
 
 <nav class="navbar">
-  <a href="index.html">Головна</a>
-  <a href="menu.html" class="active">Меню</a>
-  <a href="contacts.html">Контакти</a>
+  <div class="logo">☕ Cafe</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Головна</a>
+    <a href="menu.html" class="active">Меню</a>
+    <a href="contacts.html">Контакти</a>
+  </div>
+  <div class="burger" onclick="toggleMenu()">☰</div>
 </nav>
 
 <header>
