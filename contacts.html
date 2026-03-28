@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Контакти</title>
 <link rel="stylesheet" href="menu.css">
 </head>
@@ -9,20 +10,27 @@
 <body>
 
 <nav class="navbar">
-  <a href="index.html">Головна</a>
-  <a href="menu.html">Меню</a>
-  <a href="contacts.html" class="active">Контакти</a>
+  <div class="logo">☕ Cafe</div>
+  
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Головна</a>
+    <a href="menu.html">Меню</a>
+    <a href="contacts.html" class="active">Контакти</a>
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">☰</div>
 </nav>
 
 <header>
 <h1>Наші контакти</h1>
 </header>
 
-<div class="contacts">
+<section class="contacts">
 <p>📍 м. Чернівці</p>
 <p>📞 +380 00 000 00 00</p>
 <p>📧 cafe@email.com</p>
-</div>
+</section>
 
+<script src="script.js"></script>
 </body>
 </html>
