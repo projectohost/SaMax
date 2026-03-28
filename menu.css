@@ -195,6 +195,7 @@ pointer-events:auto;
 }
 }
 
+/* ===== КОШИК (оновлений, але старе не видалено) ===== */
 .cart{
 position:fixed;
 bottom:20px;
@@ -205,6 +206,15 @@ padding:15px;
 border-radius:15px;
 width:260px;
 box-shadow:0 10px 30px rgba(0,0,0,0.5);
+
+/* 🔥 нове */
+transform:translateX(120%);
+transition:0.4s;
+}
+
+/* відкритий стан */
+.cart.open{
+transform:translateX(0);
 }
 
 .cart h2{
@@ -221,4 +231,34 @@ overflow:auto;
 .cart li{
 padding:5px 0;
 border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== 🔥 КНОПКА КОШИКА ===== */
+.cart-toggle{
+position:fixed;
+bottom:20px;
+right:20px;
+width:65px;
+height:65px;
+border-radius:50%;
+border:none;
+font-size:24px;
+background:linear-gradient(45deg,#00d4ff,#0099ff);
+color:white;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+transition:0.3s;
+z-index:200;
+animation:pulse 2s infinite;
+}
+
+.cart-toggle:hover{
+transform:scale(1.15) rotate(10deg);
+}
+
+/* анімація пульсу */
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(0,212,255,0.6);}
+70%{box-shadow:0 0 0 15px rgba(0,212,255,0);}
+100%{box-shadow:0 0 0 0 rgba(0,212,255,0);}
 }
