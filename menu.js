@@ -41,3 +41,43 @@ if(nav && !nav.contains(e.target) && !e.target.classList.contains("burger")){
 nav.classList.remove("show");
 }
 });
+
+/* ===== CART ===== */
+let cart = [];
+let total = 0;
+
+function updateCart(){
+let list = document.getElementById("cartItems");
+let totalEl = document.getElementById("total");
+
+if(!list) return;
+
+list.innerHTML = "";
+
+cart.forEach(item=>{
+list.innerHTML += `<li>${item.name} - ${item.price} грн</li>`;
+});
+
+totalEl.innerText = total;
+}
+
+/* ДОДАТИ ДО ЗАМОВЛЕННЯ */
+document.addEventListener("click", function(e){
+if(e.target.classList.contains("order")){
+let card = e.target.closest(".card");
+let name = card.querySelector("h3").innerText;
+let price = parseInt(card.querySelector(".price").innerText);
+
+cart.push({name, price});
+total += price;
+
+updateCart();
+}
+});
+
+/* ОЧИСТИТИ */
+function clearCart(){
+cart = [];
+total = 0;
+updateCart();
+}

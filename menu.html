@@ -39,7 +39,55 @@
 
 <div class="menu-grid" id="menuGrid">
 
-<!-- НАПОЇ -->
+<div class="card drink">
+<img src="">
+<h3>Еспресо</h3>
+<p class="price">40 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card drink">
+<img src="">
+<h3>Чай зелений</h3>
+<p class="price">35 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card dessert">
+<img src="">
+<h3>Тірамісу</h3>
+<p class="price">120 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card dessert">
+<img src="">
+<h3>Мафін</h3>
+<p class="price">70 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card food">
+<img src="">
+<h3>Паста</h3>
+<p class="price">130 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card food">
+<img src="">
+<h3>Салат</h3>
+<p class="price">90 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card food">
+<img src="">
+<h3>Сендвіч</h3>
+<p class="price">85 грн</p>
+<button class="order">Замовити</button>
+</div>
+
 <div class="card drink">
 <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
 <h3>Лате</h3>
@@ -61,7 +109,6 @@
 <button class="order">Замовити</button>
 </div>
 
-<!-- ДЕСЕРТИ -->
 <div class="card dessert">
 <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
 <h3>Брауні</h3>
@@ -83,7 +130,6 @@
 <button class="order">Замовити</button>
 </div>
 
-<!-- СТРАВИ -->
 <div class="card food">
 <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
 <h3>Бургер</h3>
@@ -108,6 +154,13 @@
 </div>
 
 </section>
+
+<div class="cart" id="cart">
+<h2>🛒 Кошик</h2>
+<ul id="cartItems"></ul>
+<p>Сума: <span id="total">0</span> грн</p>
+<button onclick="clearCart()">Очистити</button>
+</div>
 
 <script src="menu.js"></script>
 </body>
