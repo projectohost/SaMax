@@ -1,9 +1,13 @@
 const clickSound = new Audio("sounds/click.mp3");
+const tickSound = new Audio("sounds/tick.mp3");
 clickSound.volume = 0.4;
 
 function filterMenu(event,category){
 document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
 event.target.classList.add("active");
+
+tickSound.currentTime = 0;
+tickSound.play();
 
 document.querySelectorAll(".card").forEach(card=>{
 card.style.display = (category === "all" || card.classList.contains(category)) ? "block" : "none";
