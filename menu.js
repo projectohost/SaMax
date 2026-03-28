@@ -1,4 +1,6 @@
-/* FILTER */
+const clickSound = new Audio("sounds/click.mp3");
+clickSound.volume = 0.4;
+
 function filterMenu(event,category){
 document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
 event.target.classList.add("active");
@@ -8,7 +10,6 @@ card.style.display = (category === "all" || card.classList.contains(category)) ?
 });
 }
 
-/* SEARCH */
 let search = document.getElementById("search");
 if(search){
 search.addEventListener("input", function(){
@@ -21,12 +22,10 @@ card.style.display = text.includes(value) ? "block" : "none";
 });
 }
 
-/* BURGER */
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("show");
 }
 
-/* ===== CART ===== */
 let cart = [];
 let total = 0;
 
@@ -47,9 +46,12 @@ list.innerHTML += `<li>${item.name} - ${item.price} грн</li>`;
 totalEl.innerText = total;
 }
 
-/* ADD */
 document.addEventListener("click", function(e){
 if(e.target.classList.contains("order")){
+
+clickSound.currentTime = 0;
+clickSound.play();
+
 let card = e.target.closest(".card");
 
 let name = card.querySelector("h3").innerText;
@@ -62,7 +64,6 @@ updateCart();
 }
 });
 
-/* CLEAR */
 function clearCart(){
 cart = [];
 total = 0;
