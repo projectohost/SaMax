@@ -39,112 +39,179 @@
 
 <div class="menu-grid" id="menuGrid">
 
-<div class="card drink">
+<!-- ☕ НАПОЇ -->
+<div class="card drink" onclick="openModal(this)"
+data-name="Еспресо"
+data-price="40"
+data-desc="Міцна класична кава для енергії"
+data-img="https://mag-cafe.online/image/cache/catalog/Fotoizineta/espresso-480x300.png">
 <img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/espresso-480x300.png">
 <h3>Еспресо</h3>
 <p class="price">40 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card drink">
+<div class="card drink" onclick="openModal(this)"
+data-name="Чай зелений"
+data-price="35"
+data-desc="Ароматний зелений чай для релаксу"
+data-img="https://mag-cafe.online/image/cache/catalog/Fotoizineta/CHajvassortimente-480x300.png">
 <img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/CHajvassortimente-480x300.png">
 <h3>Чай зелений</h3>
 <p class="price">35 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card dessert">
-<img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/tiramisu-480x300.png">
-<h3>Тірамісу</h3>
-<p class="price">120 грн</p>
-<button class="order">Замовити</button>
-</div>
-
-<div class="card dessert">
-<img src="https://mantinga.org/cache/cache_image/3/3ca65e0969c0867fff45b9e01bc1026b">
-<h3>Мафін</h3>
-<p class="price">70 грн</p>
-<button class="order">Замовити</button>
-</div>
-
-<div class="card food">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGG40D6M-8-CE7Vx-KJ8RTCBuw8_7LZ-NAw&s">
-<h3>Паста</h3>
-<p class="price">130 грн</p>
-<button class="order">Замовити</button>
-</div>
-
-<div class="card food">
-<img src="https://images.unian.net/photos/2019_12/thumb_files/1200_0_1577182092-7643.jpg">
-<h3>Салат</h3>
-<p class="price">90 грн</p>
-<button class="order">Замовити</button>
-</div>
-
-<div class="card food">
-<img src="https://i.obozrevatel.com/food/recipemain/2019/1/9/60f1aeaab9ac4de1d317293dc3e65c25.jpg?size=636x424">
-<h3>Сендвіч</h3>
-<p class="price">85 грн</p>
-<button class="order">Замовити</button>
-</div>
-
-<div class="card drink">
+<div class="card drink" onclick="openModal(this)"
+data-name="Лате"
+data-price="60"
+data-desc="Ніжна кава з молоком"
+data-img="https://mag-cafe.online/image/cache/catalog/Fotoizineta/Latte-480x300.png">
 <img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/Latte-480x300.png">
 <h3>Лате</h3>
 <p class="price">60 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card drink">
+<div class="card drink" onclick="openModal(this)"
+data-name="Американо"
+data-price="45"
+data-desc="Легка чорна кава"
+data-img="https://mag-cafe.online/image/cache/catalog/Fotoizineta/Amerikano-480x300.png">
 <img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/Amerikano-480x300.png">
 <h3>Американо</h3>
 <p class="price">45 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card drink">
+<div class="card drink" onclick="openModal(this)"
+data-name="Капучино"
+data-price="65"
+data-desc="Кава з густою пінкою"
+data-img="https://mag-cafe.online/image/cache/catalog/Fotoizineta/Kapuchino-480x300.png">
 <img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/Kapuchino-480x300.png">
 <h3>Капучино</h3>
 <p class="price">65 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card dessert">
+<!-- 🍰 ДЕСЕРТИ -->
+<div class="card dessert" onclick="openModal(this)"
+data-name="Тірамісу"
+data-price="120"
+data-desc="Італійський десерт з кавою та кремом"
+data-img="https://mag-cafe.online/image/cache/catalog/Fotoizineta/tiramisu-480x300.png">
+<img src="https://mag-cafe.online/image/cache/catalog/Fotoizineta/tiramisu-480x300.png">
+<h3>Тірамісу</h3>
+<p class="price">120 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card dessert" onclick="openModal(this)"
+data-name="Мафін"
+data-price="70"
+data-desc="Пухкий кекс з начинкою"
+data-img="https://mantinga.org/cache/cache_image/3/3ca65e0969c0867fff45b9e01bc1026b">
+<img src="https://mantinga.org/cache/cache_image/3/3ca65e0969c0867fff45b9e01bc1026b">
+<h3>Мафін</h3>
+<p class="price">70 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card dessert" onclick="openModal(this)"
+data-name="Брауні"
+data-price="80"
+data-desc="Шоколадний десерт з насиченим смаком"
+data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQC6EPDSHfWbhrDh-JZQpSOgiUvmRnnC0eQ&s">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQC6EPDSHfWbhrDh-JZQpSOgiUvmRnnC0eQ&s">
 <h3>Брауні</h3>
 <p class="price">80 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card dessert">
+<div class="card dessert" onclick="openModal(this)"
+data-name="Пончики"
+data-price="110"
+data-desc="Солодкі пончики з глазур’ю"
+data-img="https://images.unian.net/photos/2019_03/thumb_files/1200_0_1553353520-4665.jpg">
 <img src="https://images.unian.net/photos/2019_03/thumb_files/1200_0_1553353520-4665.jpg">
 <h3>Пончики</h3>
 <p class="price">110 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card dessert">
+<div class="card dessert" onclick="openModal(this)"
+data-name="Макаронс"
+data-price="95"
+data-desc="Французьке печиво з кремом"
+data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6m03YhBcRtrMvZmqVz8F9Du0maX36gxtIWg&s">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6m03YhBcRtrMvZmqVz8F9Du0maX36gxtIWg&s">
 <h3>Макаронс</h3>
 <p class="price">95 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card food">
+<!-- 🍔 СТРАВИ -->
+<div class="card food" onclick="openModal(this)"
+data-name="Паста"
+data-price="130"
+data-desc="Італійська паста з соусом"
+data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGG40D6M-8-CE7Vx-KJ8RTCBuw8_7LZ-NAw&s">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGG40D6M-8-CE7Vx-KJ8RTCBuw8_7LZ-NAw&s">
+<h3>Паста</h3>
+<p class="price">130 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card food" onclick="openModal(this)"
+data-name="Салат"
+data-price="90"
+data-desc="Свіжий овочевий салат"
+data-img="https://images.unian.net/photos/2019_12/thumb_files/1200_0_1577182092-7643.jpg">
+<img src="https://images.unian.net/photos/2019_12/thumb_files/1200_0_1577182092-7643.jpg">
+<h3>Салат</h3>
+<p class="price">90 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card food" onclick="openModal(this)"
+data-name="Сендвіч"
+data-price="85"
+data-desc="Хрусткий сендвіч з начинкою"
+data-img="https://i.obozrevatel.com/food/recipemain/2019/1/9/60f1aeaab9ac4de1d317293dc3e65c25.jpg">
+<img src="https://i.obozrevatel.com/food/recipemain/2019/1/9/60f1aeaab9ac4de1d317293dc3e65c25.jpg">
+<h3>Сендвіч</h3>
+<p class="price">85 грн</p>
+<button class="order">Замовити</button>
+</div>
+
+<div class="card food" onclick="openModal(this)"
+data-name="Бургер"
+data-price="140"
+data-desc="Соковитий бургер з м’ясом"
+data-img="https://cherepaha13.com.ua/wp-content/uploads/2020/01/Burger-obychnyjkurinyj-svinnojgovyazhij.jpg">
 <img src="https://cherepaha13.com.ua/wp-content/uploads/2020/01/Burger-obychnyjkurinyj-svinnojgovyazhij.jpg">
 <h3>Бургер</h3>
 <p class="price">140 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card food">
-<img src="https://rondo-pizza.kiev.ua/wp-content/uploads/2020/12/%D1%94%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0-1.jpg">
+<div class="card food" onclick="openModal(this)"
+data-name="Піцца"
+data-price="160"
+data-desc="Італійська піца з сиром"
+data-img="https://rondo-pizza.kiev.ua/wp-content/uploads/2020/12/%D1%94%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0-1.jpg">
+<img src="https://rondo-pizza.kiev.ua/wp-content/uploads/2020/12/%D1%94%D0%B2%D1%94%D0%BF%D0%B5%D0%B9%D1%81%D1%8C%D0%BA%D0%B0-1.jpg">
 <h3>Піцца</h3>
 <p class="price">160 грн</p>
 <button class="order">Замовити</button>
 </div>
 
-<div class="card food">
+<div class="card food" onclick="openModal(this)"
+data-name="Шашлик"
+data-price="130"
+data-desc="Соковите м’ясо на вогні"
+data-img="https://baza-drov.com.ua/uk/assets/tpl/img/blog/2023/05/zbirajemos-na-shashliki-yaki-drova-krashhi/zbirajemos-na-shashliki-yaki-drova-krashhi.jpg">
 <img src="https://baza-drov.com.ua/uk/assets/tpl/img/blog/2023/05/zbirajemos-na-shashliki-yaki-drova-krashhi/zbirajemos-na-shashliki-yaki-drova-krashhi.jpg">
 <h3>Шашлик</h3>
 <p class="price">130 грн</p>
@@ -165,5 +232,19 @@
 </div>
 
 <script src="menu.js"></script>
+
+<!-- 🔥 popup -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    
+    <img id="modalImg">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <p id="modalPrice"></p>
+
+    <button class="order" onclick="addFromModal()">Додати в кошик</button>
+  </div>
+</div>
 </body>
 </html>

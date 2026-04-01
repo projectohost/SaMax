@@ -113,3 +113,38 @@ toast.classList.remove("show");
 setTimeout(()=>toast.remove(),300);
 },2000);
 }
+
+let currentItem = null;
+
+function openModal(card){
+let modal = document.getElementById("modal");
+
+currentItem = {
+name: card.dataset.name,
+price: card.dataset.price,
+img: card.dataset.img,
+desc: card.dataset.desc
+};
+
+document.getElementById("modalImg").src = currentItem.img;
+document.getElementById("modalTitle").innerText = currentItem.name;
+document.getElementById("modalDesc").innerText = currentItem.desc;
+document.getElementById("modalPrice").innerText = currentItem.price + " грн";
+
+modal.classList.add("show");
+}
+
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
+}
+
+function addFromModal(){
+cart.push({
+name: currentItem.name,
+price: parseInt(currentItem.price)
+});
+
+showToast("Додано в кошик ☕");
+updateCart();
+closeModal();
+}
