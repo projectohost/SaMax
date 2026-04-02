@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Меню кафе</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="menu.css">
 </head>
 
 <body>
 
 <nav class="navbar">
-  <div class="logo">☕ Cafe</div>
-  
+  <div class="logo">☕ CoffeeHouse</div>
+
   <div class="nav-links" id="navLinks">
     <a href="index.html">Головна</a>
     <a href="menu.html" class="active">Меню</a>
@@ -21,9 +23,9 @@
   <div class="burger" onclick="toggleMenu()">☰</div>
 </nav>
 
-<header>
-<h1>Меню нашого кафе</h1>
-<p class="subtitle">Смак, який запам’ятається ☕</p>
+<header class="hero">
+  <h1>Меню нашого кафе</h1>
+  <p>Справжній смак кави та десертів</p>
 </header>
 
 <section class="menu">
@@ -32,9 +34,9 @@
 
 <div class="filters">
 <button class="active" onclick="filterMenu(event,'all')">Усе</button>
-<button onclick="filterMenu(event,'drink')">Напої</button>
-<button onclick="filterMenu(event,'dessert')">Десерти</button>
-<button onclick="filterMenu(event,'food')">Страви</button>
+<button onclick="filterMenu(event,'drink')">☕ Напої</button>
+<button onclick="filterMenu(event,'dessert')">🍰 Десерти</button>
+<button onclick="filterMenu(event,'food')">🍔 Страви</button>
 </div>
 
 <div class="menu-grid" id="menuGrid">
@@ -225,26 +227,36 @@ data-img="https://baza-drov.com.ua/uk/assets/tpl/img/blog/2023/05/zbirajemos-na-
 <button class="cart-toggle" onclick="toggleCart()">🛒</button>
 
 <div class="cart" id="cart">
-<h2>🛒 Кошик</h2>
+<h2>Кошик</h2>
 <ul id="cartItems"></ul>
+
+<p>Товарів: <span id="count">0</span></p>
 <p>Сума: <span id="total">0</span> грн</p>
+
 <button onclick="clearCart()">Очистити</button>
 </div>
 
 <script src="menu.js"></script>
 
-<!-- 🔥 popup -->
+<!-- modal -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">×</span>
-    
+
     <img id="modalImg">
     <h2 id="modalTitle"></h2>
     <p id="modalDesc"></p>
     <p id="modalPrice"></p>
 
-    <button class="order" onclick="addFromModal()">Додати в кошик</button>
+    <div class="qty-box">
+  <button onclick="changeQty(-1)">−</button>
+  <span id="qty">1</span>
+  <button onclick="changeQty(1)">+</button>
+</div>
+
+<button class="order" onclick="addFromModal()">Додати в кошик</button>
   </div>
 </div>
+
 </body>
 </html>

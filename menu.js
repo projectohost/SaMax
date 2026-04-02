@@ -118,6 +118,8 @@ let currentItem = null;
 
 function openModal(card){
 let modal = document.getElementById("modal");
+qty = 1;
+document.getElementById("qty").innerText = qty;
 
 currentItem = {
 name: card.dataset.name,
@@ -139,12 +141,24 @@ document.getElementById("modal").classList.remove("show");
 }
 
 function addFromModal(){
+for(let i=0;i<qty;i++){
 cart.push({
 name: currentItem.name,
 price: parseInt(currentItem.price)
 });
+}
 
 showToast("Додано в кошик ☕");
 updateCart();
 closeModal();
+}
+
+let qty = 1;
+
+function changeQty(value){
+qty += value;
+
+if(qty < 1) qty = 1;
+
+document.getElementById("qty").innerText = qty;
 }
