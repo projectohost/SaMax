@@ -1,12 +1,21 @@
+/* =======================
+   🔥 БАЗА
+======================= */
 body{
-font-family:'Poppins',sans-serif;;
+font-family:'Poppins',sans-serif;
 margin:0;
 background:linear-gradient(135deg,#2e1f1a,#4e342e,#3e2723);
 color:#f5f5f5;
 animation:fadeIn 0.5s;
 }
 
-/* 🔥 navbar */
+h2{
+color:#c8a97e;
+}
+
+/* =======================
+   🔥 NAVBAR
+======================= */
 .navbar{
 display:flex;
 justify-content:space-between;
@@ -41,14 +50,15 @@ color:#c8a97e;
 border-bottom:2px solid #c8a97e;
 }
 
-/* 🔥 бургер */
+/* =======================
+   🔥 BURGER + MOBILE MENU
+======================= */
 .burger{
 display:none;
 cursor:pointer;
 font-size:22px;
 }
 
-/* 🔥 моб меню */
 @media(max-width:768px){
 .nav-links{
 display:flex;
@@ -77,7 +87,9 @@ display:block;
 }
 }
 
-/* 🔥 header */
+/* =======================
+   🔥 HEADER
+======================= */
 header{
 text-align:center;
 padding:30px;
@@ -87,7 +99,9 @@ padding:30px;
 opacity:0.7;
 }
 
-/* 🔥 пошук */
+/* =======================
+   🔥 ПОШУК + СОРТУВАННЯ
+======================= */
 #search{
 display:block;
 margin:10px auto;
@@ -102,7 +116,33 @@ background:#3e2723;
 color:white;
 }
 
-/* 🔥 фільтри */
+#sort{
+display:block;
+margin:10px auto;
+padding:10px 15px;
+border-radius:20px;
+border:none;
+background:#3e2723;
+color:white;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+}
+
+#sort:hover{
+background:#c8a97e;
+color:#2e1f1a;
+transform:scale(1.05);
+}
+
+#sort:focus{
+outline:none;
+box-shadow:0 0 10px #c8a97e;
+}
+
+/* =======================
+   🔥 ФІЛЬТРИ
+======================= */
 .filters{
 text-align:center;
 }
@@ -127,7 +167,9 @@ background:#c8a97e;
 color:#2e1f1a;
 }
 
-/* 🔥 grid */
+/* =======================
+   🔥 GRID
+======================= */
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -135,7 +177,9 @@ gap:20px;
 padding:20px;
 }
 
-/* 🔥 карточка */
+/* =======================
+   🔥 CARD
+======================= */
 .card{
 background:rgba(255,255,255,0.05);
 border-radius:15px;
@@ -153,7 +197,13 @@ transform:translateY(-10px) scale(1.04);
 box-shadow:0 15px 35px rgba(0,0,0,0.8);
 }
 
-/* 🔥 картинки */
+.cart-toggle{
+transition:0.3s;
+}
+
+/* =======================
+   🔥 IMAGE
+======================= */
 .card img{
 width:100%;
 height:160px;
@@ -165,7 +215,9 @@ transition:0.5s;
 transform:scale(1.1);
 }
 
-/* 🔥 текст */
+/* =======================
+   🔥 TEXT
+======================= */
 .card h3{
 margin:10px 0 5px;
 }
@@ -176,7 +228,9 @@ font-weight:bold;
 font-size:18px;
 }
 
-/* 🔥 кнопка */
+/* =======================
+   🔥 BUTTONS
+======================= */
 .order{
 background:linear-gradient(45deg,#c8a97e,#8d6e63);
 border:none;
@@ -193,14 +247,26 @@ transform:scale(1.1);
 background:linear-gradient(45deg,#d7ccc8,#a1887f);
 }
 
-/* 🔥 контакти */
+/* =======================
+   🔥 CONTACTS
+======================= */
 .contacts{
 text-align:center;
 font-size:20px;
 padding:30px;
 }
 
-/* 🔥 кошик */
+.contacts iframe{
+width:100%;
+height:200px;
+border:none;
+border-radius:15px;
+margin-top:15px;
+}
+
+/* =======================
+   🔥 CART
+======================= */
 .cart{
 position:fixed;
 bottom:20px;
@@ -236,7 +302,14 @@ padding:5px 0;
 border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-/* 🔥 кнопка кошика */
+.cart button{
+margin-top:5px;
+width:100%;
+}
+
+/* =======================
+   🔥 CART BUTTON
+======================= */
 .cart-toggle{
 position:fixed;
 bottom:20px;
@@ -259,7 +332,9 @@ animation:pulse 2s infinite;
 transform:scale(1.2) rotate(10deg);
 }
 
-/* 🔥 toast (ВАЖЛИВО) */
+/* =======================
+   🔥 TOAST
+======================= */
 .toast{
 position:fixed;
 bottom:30px;
@@ -281,42 +356,9 @@ opacity:1;
 transform:translateX(-50%) translateY(0);
 }
 
-/* 🔥 анімації */
-@keyframes pulse{
-0%{box-shadow:0 0 0 0 rgba(200,169,126,0.6);}
-70%{box-shadow:0 0 0 15px rgba(200,169,126,0);}
-100%{box-shadow:0 0 0 0 rgba(200,169,126,0);}
-}
-
-@keyframes fadeIn{
-from{opacity:0}
-to{opacity:1}
-}
-
-@keyframes cardFade{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* 🔥 мобілка */
-@media(max-width:480px){
-.menu-grid{
-grid-template-columns:1fr;
-}
-}
-
-/* 🔥 карта */
-.contacts iframe{
-width:100%;
-height:200px;
-border:none;
-border-radius:15px;
-margin-top:15px;
-}
-
-/* 🔥 модальне вікно */
+/* =======================
+   🔥 MODAL
+======================= */
 .modal{
 position:fixed;
 inset:0;
@@ -352,18 +394,6 @@ border-radius:15px;
 margin-bottom:10px;
 }
 
-.modal-content h2{
-margin:10px 0;
-}
-
-.modal-content p{
-margin:5px 0;
-}
-
-.modal-content .order{
-margin-top:10px;
-}
-
 .close{
 position:absolute;
 top:10px;
@@ -383,60 +413,15 @@ transition:0.3s;
 font-weight:bold;
 }
 
-/* hover ефект */
 .close:hover{
 background:#c8a97e;
 color:white;
 transform:scale(1.1);
 }
 
-/* 🔥 анімація */
-@keyframes popup{
-from{
-transform:scale(0.8);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
-}
-
-/* сортування */
-#sort{
-display:block;
-margin:10px auto;
-padding:10px;
-border-radius:10px;
-}
-
-/* кількість */
-.modal-content div{
-margin:10px 0;
-}
-
-.modal-content button{
-margin:5px;
-}
-
-h2{
-color:#c8a97e;
-}
-
-.cart button{
-margin-top:5px;
-width:100%;
-}
-
-@media(max-width:480px){
-.cart{
-width:100%;
-right:0;
-bottom:0;
-border-radius:0;
-}
-}
-
+/* =======================
+   🔥 QTY
+======================= */
 .qty-box{
 display:flex;
 justify-content:center;
@@ -465,4 +450,52 @@ background:#a1887f;
 .qty-box span{
 font-size:18px;
 font-weight:bold;
+}
+
+/* =======================
+   🔥 ANIMATIONS
+======================= */
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(200,169,126,0.6);}
+70%{box-shadow:0 0 0 15px rgba(200,169,126,0);}
+100%{box-shadow:0 0 0 0 rgba(200,169,126,0);}
+}
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes cardFade{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes popup{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+/* =======================
+   🔥 MOBILE SMALL
+======================= */
+@media(max-width:480px){
+.menu-grid{
+grid-template-columns:1fr;
+}
+
+.cart{
+width:100%;
+right:0;
+bottom:0;
+border-radius:0;
+}
 }
