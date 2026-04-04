@@ -201,6 +201,19 @@ box-shadow:0 15px 35px rgba(0,0,0,0.8);
 transition:0.3s;
 }
 
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(45deg,transparent,#c8a97e33);
+opacity:0;
+transition:0.4s;
+}
+
+.card:hover::after{
+opacity:1;
+}
+
 /* =======================
    🔥 IMAGE
 ======================= */
@@ -305,6 +318,17 @@ border-bottom:1px solid rgba(255,255,255,0.1);
 .cart button{
 margin-top:5px;
 width:100%;
+}
+
+.cart-count{
+position:absolute;
+top:-5px;
+right:-5px;
+background:red;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
 }
 
 /* =======================

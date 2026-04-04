@@ -66,6 +66,7 @@ function updateCart() {
   const list = document.getElementById("cartItems");
   const totalEl = document.getElementById("total");
   const countEl = document.getElementById("count");
+  document.getElementById("cartCount").innerText = cart.length;
 
   list.innerHTML = "";
   let total = 0;
@@ -90,8 +91,26 @@ function addToCart(item) {
   cart.push(item);
   sounds.click.currentTime = 0;
   sounds.click.play();
-
   showToast("Додано в кошик ☕");
+  const plus = document.createElement("div");
+plus.innerText = "+1";
+plus.style.position = "fixed";
+plus.style.right = "40px";
+plus.style.bottom = "80px";
+plus.style.color = "#c8a97e";
+plus.style.fontWeight = "bold";
+plus.style.fontSize = "20px";
+plus.style.opacity = "1";
+plus.style.transition = "0.6s";
+
+document.body.appendChild(plus);
+
+setTimeout(()=>{
+  plus.style.transform = "translateY(-40px)";
+  plus.style.opacity = "0";
+},10);
+
+setTimeout(()=> plus.remove(),600);
   updateCart();
 }
 
@@ -110,6 +129,9 @@ function clearCart() {
 // =======================
 document.addEventListener("click", e => {
   if (e.target.classList.contains("order")) {
+
+    e.stopPropagation();
+
     const card = e.target.closest(".card");
 
     const item = {
@@ -260,3 +282,11 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
 
   });
 });
+
+// =======================
+// Контакти
+// =======================
+
+function sendMessage(){
+  showToast("Повідомлення відправлено 📩");
+}
