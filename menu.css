@@ -407,6 +407,17 @@ animation:pulse 2s infinite;
 transform:scale(1.2) rotate(10deg);
 }
 
+.cart-clear{
+background-color:#c8a97e;
+border-radius: 15px;
+box-shadow:0 5px 20px #c8a97e;
+transition: 0.4s;
+}
+
+.cart-clear:hover{
+   transform: scale(1.05)
+}
+
 /* =======================
    🔥 TOAST
 ======================= */
