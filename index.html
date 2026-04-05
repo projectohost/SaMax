@@ -1,32 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cafe</title>
-    <link rel="stylesheet" href="/menu.css">
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <meta
+      name="description"
+      content="Затишне кафе CoffeeHouse зі свіжою кавою щодня. Насолоджуйтесь ароматними напоями, десертами та теплою атмосферою. Ідеальне місце для відпочинку, зустрічей з друзями та роботи. Завітайте до нас і відчуйте справжній смак кави."
+    />
 
-<body>
-<nav class="navbar">
-  <div class="logo">☕ CoffeeHouse</div>
+    <meta property="og:title" content="CoffeeHouse Cafe" />
+    <meta
+      property="og:description"
+      content="Свіжа кава щодня, смачні десерти та затишна атмосфера."
+    />
+    <meta
+      property="og:image"
+      content="https://yourwebsite.com/images/cafe.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com" />
 
-  <div class="nav-links" id="navLinks">
-    <a href="index.html">Головна</a>
-    <a href="menu.html" class="active">Меню</a>
-    <a href="contacts.html">Контакти</a>
-  </div>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CoffeeHouse Cafe" />
+    <meta
+      name="twitter:description"
+      content="Свіжа кава щодня та затишна атмосфера."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourwebsite.com/images/cafe.jpg"
+    />
 
-  <div class="burger" onclick="toggleMenu()">☰</div>
-</nav>
+    <link rel="stylesheet" href="/menu.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">☕ CoffeeHouse</div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Головна</a>
+        <a href="menu.html" class="active">Меню</a>
+        <a href="contacts.html">Контакти</a>
+      </div>
+
+      <div class="burger" onclick="toggleMenu()">☰</div>
+    </nav>
     <section class="hero">
-        <div class="hero-content">
-            <h1>Fresh Coffee Daily</h1>
-            <p>Warm vibes. Great taste. Your local cafe spot.</p>
-            <a href="menu.html">View Menu</a>
-        </div>
+      <div class="hero-content">
+        <h1>Fresh Coffee Daily</h1>
+        <p>Warm vibes. Great taste. Your local cafe spot.</p>
+        <a href="menu.html">View Menu</a>
+      </div>
     </section>
 
-</body>
+    <section class="coffee-section">
+      <div class="content">
+        <h1>Атмосфера справжньої кави</h1>
+        <p>
+          Ласкаво просимо до нашої кав’ярні — місця, де кожна чашка наповнена
+          теплом і ароматом. Ми відбираємо лише найкращі зерна, щоб створити
+          ідеальний смак для вашого настрою. Тут час сповільнюється, а кожен
+          ковток надихає.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <div class="item item1">
+          <img src="https://picsum.photos/500/600?coffee1" />
+        </div>
+        <div class="item item2">
+          <img src="https://picsum.photos/400/400?coffee2" />
+        </div>
+        <div class="item item3">
+          <img src="https://picsum.photos/600/400?coffee3" />
+        </div>
+        <div class="item item4">
+          <img src="https://picsum.photos/500/500?coffee4" />
+        </div>
+        <div class="item item5">
+          <img src="https://picsum.photos/450/600?coffee5" />
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
