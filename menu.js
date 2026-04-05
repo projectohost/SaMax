@@ -1,164 +1,292 @@
-const clickSound = new Audio("sounds/click.mp3");
-const tickSound = new Audio("sounds/tick.mp3");
-clickSound.volume = 0.4;
-
-function filterMenu(event,category){
-document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
-event.target.classList.add("active");
-
-tickSound.currentTime = 0;
-tickSound.play();
-
-document.querySelectorAll(".card").forEach(card=>{
-card.style.display = (category === "all" || card.classList.contains(category)) ? "block" : "none";
-});
-}
-
-let search = document.getElementById("search");
-if(search){
-search.addEventListener("input", function(){
-let value = this.value.toLowerCase();
-
-document.querySelectorAll(".card").forEach(card=>{
-let text = card.innerText.toLowerCase();
-card.style.display = text.includes(value) ? "block" : "none";
-});
-});
-}
-
-function toggleMenu(){
-document.getElementById("navLinks").classList.toggle("show");
-}
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let total = 0;
-
-function toggleCart(){
-document.getElementById("cart").classList.toggle("open");
-}
-
-function updateCart(){
-let list = document.getElementById("cartItems");
-let totalEl = document.getElementById("total");
-
-list.innerHTML = "";
-total = 0;
-
-cart.forEach(item=>{
-list.innerHTML += `<li>${item.name} - ${item.price} грн</li>`;
-total += item.price;
-});
-
-totalEl.innerText = total;
-
-/* 🔥 збереження */
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-document.addEventListener("click", function(e){
-if(e.target.classList.contains("order")){
-
-clickSound.currentTime = 0;
-clickSound.play();
-
-let card = e.target.closest(".card");
-
-let name = card.querySelector("h3").innerText;
-let price = parseInt(card.querySelector(".price").innerText);
-
-cart.push({name, price});
-showToast("Додано в кошик ☕");
-total += price;
-
-updateCart();
-}
-});
-
-function clearCart(){
-cart = [];
-total = 0;
-updateCart();
-}
-
-function showToast(text){
-let div = document.createElement("div");
-div.innerText = text;
-div.style.position = "fixed";
-div.style.bottom = "30px";
-div.style.left = "50%";
-div.style.transform = "translateX(-50%)";
-div.style.background = "#00d4ff";
-div.style.padding = "10px 20px";
-div.style.borderRadius = "20px";
-div.style.zIndex = "999";
-
-document.body.appendChild(div);
-
-setTimeout(()=>div.remove(),2000);
-}
-
-updateCart();
-
-function showToast(text){
-let toast = document.createElement("div");
-toast.className = "toast";
-toast.innerText = text;
-
-document.body.appendChild(toast);
-
-setTimeout(()=>toast.classList.add("show"),50);
-
-setTimeout(()=>{
-toast.classList.remove("show");
-setTimeout(()=>toast.remove(),300);
-},2000);
-}
-
-let currentItem = null;
-
-function openModal(card){
-let modal = document.getElementById("modal");
-qty = 1;
-document.getElementById("qty").innerText = qty;
-
-currentItem = {
-name: card.dataset.name,
-price: card.dataset.price,
-img: card.dataset.img,
-desc: card.dataset.desc
+// 🔊 звуки
+const sounds = {
+  click: new Audio("sounds/click.mp3"),
+  tick: new Audio("sounds/tick.mp3")
 };
+sounds.click.volume = 0.4;
 
-document.getElementById("modalImg").src = currentItem.img;
-document.getElementById("modalTitle").innerText = currentItem.name;
-document.getElementById("modalDesc").innerText = currentItem.desc;
-document.getElementById("modalPrice").innerText = currentItem.price + " грн";
-
-modal.classList.add("show");
-}
-
-function closeModal(){
-document.getElementById("modal").classList.remove("show");
-}
-
-function addFromModal(){
-for(let i=0;i<qty;i++){
-cart.push({
-name: currentItem.name,
-price: parseInt(currentItem.price)
-});
-}
-
-showToast("Додано в кошик ☕");
-updateCart();
-closeModal();
-}
-
+// 🛒 стан
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let currentItem = null;
 let qty = 1;
 
-function changeQty(value){
-qty += value;
+// =======================
+// 🔍 ФІЛЬТР
+// =======================
+function filterMenu(event, category) {
+  document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+  event.target.classList.add("active");
 
-if(qty < 1) qty = 1;
+  sounds.tick.currentTime = 0;
+  sounds.tick.play();
 
-document.getElementById("qty").innerText = qty;
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display =
+      category === "all" || card.classList.contains(category)
+        ? "block"
+        : "none";
+  });
+}
+
+// =======================
+// 🔍 ПОШУК
+// =======================
+const search = document.getElementById("search");
+
+if (search) {
+  search.addEventListener("input", () => {
+    const value = search.value.toLowerCase();
+
+    document.querySelectorAll(".card").forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(value) ? "block" : "none";
+    });
+  });
+}
+
+// =======================
+// 🍔 БУРГЕР МЕНЮ
+// =======================
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+// =======================
+// 🛒 КОШИК
+// =======================
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("open");
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateCart() {
+  const list = document.getElementById("cartItems");
+  const totalEl = document.getElementById("total");
+  const countEl = document.getElementById("count");
+  document.getElementById("cartCount").innerText = cart.length;
+
+  list.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    list.innerHTML += `
+      <li>
+        ${item.name} - ${item.price} грн
+        <button onclick="removeItem(${index})">❌</button>
+      </li>
+    `;
+    total += item.price;
+  });
+
+  totalEl.innerText = total;
+  countEl.innerText = cart.length;
+
+  saveCart();
+}
+
+function addToCart(item) {
+  cart.push(item);
+  sounds.click.currentTime = 0;
+  sounds.click.play();
+  showToast("Додано в кошик ☕");
+  const plus = document.createElement("div");
+plus.innerText = "+1";
+plus.style.position = "fixed";
+plus.style.right = "40px";
+plus.style.bottom = "80px";
+plus.style.color = "#c8a97e";
+plus.style.fontWeight = "bold";
+plus.style.fontSize = "20px";
+plus.style.opacity = "1";
+plus.style.transition = "0.6s";
+
+document.body.appendChild(plus);
+
+setTimeout(()=>{
+  plus.style.transform = "translateY(-40px)";
+  plus.style.opacity = "0";
+},10);
+
+setTimeout(()=> plus.remove(),600);
+  updateCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function clearCart() {
+  cart = [];
+  updateCart();
+}
+
+// =======================
+// 🧾 КЛІК ПО КНОПЦІ
+// =======================
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("order")) {
+
+    e.stopPropagation();
+
+    const card = e.target.closest(".card");
+
+    const item = {
+      name: card.querySelector("h3").innerText,
+      price: parseInt(card.querySelector(".price").innerText)
+    };
+
+    addToCart(item);
+  }
+});
+
+// =======================
+// 🔔 TOAST
+// =======================
+function showToast(text) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.innerText = text;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 50);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 2000);
+}
+
+// =======================
+// 🪟 МОДАЛКА
+// =======================
+function openModal(card) {
+  const modal = document.getElementById("modal");
+
+  qty = 1;
+  document.getElementById("qty").innerText = qty;
+
+  currentItem = {
+    name: card.dataset.name,
+    price: parseInt(card.dataset.price),
+    img: card.dataset.img,
+    desc: card.dataset.desc
+  };
+
+  document.getElementById("modalImg").src = currentItem.img;
+  document.getElementById("modalTitle").innerText = currentItem.name;
+  document.getElementById("modalDesc").innerText = currentItem.desc;
+  document.getElementById("modalPrice").innerText = currentItem.price + " грн";
+
+  modal.classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("show");
+}
+
+function changeQty(value) {
+  qty += value;
+  if (qty < 1) qty = 1;
+
+  document.getElementById("qty").innerText = qty;
+}
+
+function addFromModal() {
+  for (let i = 0; i < qty; i++) {
+    addToCart(currentItem);
+  }
+  closeModal();
+}
+
+// =======================
+// 🚀 INIT
+// =======================
+
+updateCart();
+
+// =======================
+// 🔽 СОРТУВАННЯ
+// =======================
+const sort = document.getElementById("sort");
+
+if (sort) {
+  sort.addEventListener("change", () => {
+    const cards = Array.from(document.querySelectorAll(".card"));
+
+    cards.sort((a, b) => {
+      const priceA = parseInt(a.dataset.price);
+      const priceB = parseInt(b.dataset.price);
+
+      if (sort.value === "cheap") return priceA - priceB;
+      if (sort.value === "expensive") return priceB - priceA;
+      return 0;
+    });
+
+    const grid = document.getElementById("menuGrid");
+    grid.innerHTML = "";
+
+    cards.forEach(card => grid.appendChild(card));
+  });
+}
+
+// =======================
+// 🛒 АНІМАЦІЯ В КОШИК
+// =======================
+const cartBtn = document.querySelector(".cart-toggle");
+
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    const card = btn.closest(".card");
+    const img = card.querySelector("img");
+
+    const flyImg = img.cloneNode(true);
+
+    const rect = img.getBoundingClientRect();
+    const cartRect = cartBtn.getBoundingClientRect();
+
+    flyImg.style.position = "fixed";
+    flyImg.style.left = rect.left + "px";
+    flyImg.style.top = rect.top + "px";
+    flyImg.style.width = rect.width + "px";
+    flyImg.style.height = rect.height + "px";
+    flyImg.style.transition = "all 0.8s cubic-bezier(.65,-0.3,.3,1.5)";
+    flyImg.style.zIndex = "1000";
+    flyImg.style.borderRadius = "10px";
+
+    document.body.appendChild(flyImg);
+
+    setTimeout(() => {
+      flyImg.style.left = cartRect.left + "px";
+      flyImg.style.top = cartRect.top + "px";
+      flyImg.style.width = "30px";
+      flyImg.style.height = "30px";
+      flyImg.style.opacity = "0.5";
+    }, 10);
+
+    setTimeout(() => {
+      flyImg.remove();
+
+      // 🔥 маленький bounce кошика
+      cartBtn.style.transform = "scale(1.3)";
+      setTimeout(() => {
+        cartBtn.style.transform = "";
+      }, 200);
+
+    }, 800);
+
+  });
+});
+
+// =======================
+// Контакти
+// =======================
+
+function sendMessage(){
+  showToast("Повідомлення відправлено 📩");
 }
