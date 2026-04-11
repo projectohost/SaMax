@@ -117,7 +117,7 @@ setTimeout(()=> plus.remove(),600);
 function removeItem(index) {
   const listItems = document.querySelectorAll("#cartItems li");
   const itemEl = listItems[index];
-
+  sounds.tick.play();
   itemEl.style.transition = "0.4s";
   itemEl.style.transform = "translateX(50px)";
   itemEl.style.opacity = "0";
