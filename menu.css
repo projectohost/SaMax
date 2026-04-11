@@ -408,14 +408,31 @@ transform:scale(1.2) rotate(10deg);
 }
 
 .cart-clear{
-background-color:#c8a97e;
-border-radius: 15px;
-box-shadow:0 5px 20px #c8a97e;
-transition: 0.4s;
+background:linear-gradient(45deg,#c8a97e,#8d6e63);
+  border:none;
+  color:white;
+  padding:10px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:bold;
 }
 
 .cart-clear:hover{
-   transform: scale(1.05)
+transform:scale(1.08);
+}
+
+.remove-btn{
+  background:transparent;
+  border:none;
+  color: white ;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.remove-btn:hover{
+  color: red
 }
 
 /* =======================

@@ -75,7 +75,7 @@ function updateCart() {
     list.innerHTML += `
       <li>
         ${item.name} - ${item.price} грн
-        <button onclick="removeItem(${index})">❌</button>
+  <button class="remove-btn" onclick="removeItem(${index})">✖</button>
       </li>
     `;
     total += item.price;
@@ -115,13 +115,34 @@ setTimeout(()=> plus.remove(),600);
 }
 
 function removeItem(index) {
-  cart.splice(index, 1);
-  updateCart();
+  const listItems = document.querySelectorAll("#cartItems li");
+  const itemEl = listItems[index];
+
+  itemEl.style.transition = "0.4s";
+  itemEl.style.transform = "translateX(50px)";
+  itemEl.style.opacity = "0";
+
+  setTimeout(() => {
+    cart.splice(index, 1);
+    updateCart();
+  }, 300);
 }
 
 function clearCart() {
-  cart = [];
-  updateCart();
+  const items = document.querySelectorAll("#cartItems li");
+
+  items.forEach((el, i) => {
+    setTimeout(() => {
+      el.style.transform = "translateX(50px)";
+      el.style.opacity = "0";
+    }, i * 100);
+  });
+
+  setTimeout(() => {
+    cart = [];
+    updateCart();
+    showToast("Кошик очищено 🧹");
+  }, items.length * 100 + 300);
 }
 
 // =======================
@@ -164,6 +185,8 @@ function showToast(text) {
 // =======================
 // 🪟 МОДАЛКА
 // =======================
+
+
 function openModal(card) {
   const modal = document.getElementById("modal");
 
@@ -290,3 +313,4 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
 function sendMessage(){
   showToast("Повідомлення відправлено 📩");
 }
+
