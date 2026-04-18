@@ -151,7 +151,7 @@ function clearCart() {
 document.addEventListener("click", e => {
   if (e.target.classList.contains("order")) {
 
-    e.stopPropagation();
+    e.stopPropagation();s
 
     const card = e.target.closest(".card");
 
