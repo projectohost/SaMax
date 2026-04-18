@@ -78,6 +78,10 @@ body {
   overflow: hidden;
 }
 
+.coffee-section p{
+  color: white;
+}
+
 /* Fade layer */
 .coffee-section::before {
   content: "";
